@@ -5,12 +5,22 @@ const { createBrowserRouter } = require("react-router-dom");
 const Loading = <div>Loading.....</div>; //Loading 메세지 출력
 const Main = lazy(() => import("../pages/MainPage"));
 
+const About = lazy(() => import("../pages/AboutPage"));
+
 const root = createBrowserRouter([
   {
     path: "",
     element: (
       <Suspense fallback={Loading}>
         <Main />
+      </Suspense>
+    ),
+  },
+  {
+    path: "about",
+    element: (
+      <Suspense fallback={Loading}>
+        <About />
       </Suspense>
     ),
   },
